@@ -24,10 +24,10 @@ func main() {
 		fmt.Scanf("%d", &n)
 		var r int
 		s := int(math.Pow10(n - 1))
-		e := int(math.Pow10(n))
+		e := int(math.Pow10(n)) - 1
 
 		for i := e; i > s; i-- {
-			for j := e; j > s; j-- {
+			for j := e; j > i; j-- {
 				t := i * j
 				if (r < t) && isPalindrome(t) {
 					r = t
