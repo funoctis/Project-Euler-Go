@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func palindrome(num int) bool {
+func isPalindrome(num int) bool {
 	str := strconv.Itoa(num)
 	for i := 0; i < len(str)/2; i++ {
 		if str[i] != str[len(str)-i-1] {
@@ -22,17 +22,21 @@ func main() {
 	for i := 0; i < t; i++ {
 		var n int
 		fmt.Scanf("%d", &n)
-		var largest int
-		start := int(math.Pow10(n - 1))
-		end := int(math.Pow10(n))
+		var r int
+		s := int(math.Pow10(n - 1))
+		e := int(math.Pow10(n))
 
-		for i := start; i < end; i++ {
-			for j := start; j < end; j++ {
-				if palindrome(i*j) && i*j > largest {
-					largest = i * j
+		for i := e; i > s; i-- {
+			for j := e; j > s; j-- {
+				t := i * j
+				if (r < t) && isPalindrome(t) {
+					r = t
+					break
+				} else if t < r {
+					break
 				}
 			}
 		}
-		fmt.Println(largest)
+		fmt.Println(r)
 	}
 }
