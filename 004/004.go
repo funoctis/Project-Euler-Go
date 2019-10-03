@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"strconv"
 	"time"
 )
@@ -18,6 +17,7 @@ func isPalindrome(num int) bool {
 }
 
 func main() {
+	start := time.Now()
 	var t int
 	fmt.Scanf("%d", &t)
 	for i := 0; i < t; i++ {
@@ -41,7 +41,5 @@ func main() {
 			}
 		}
 		fmt.Println(r)
-		elapsed := time.Since(start)
-		log.Printf("palindrom %s", elapsed)
 	}
 }
