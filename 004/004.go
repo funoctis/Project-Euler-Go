@@ -29,6 +29,9 @@ func main() {
 		for i := e; i > s; i-- {
 			for j := e; j > i; j-- {
 				t := i * j
+				if t%11 != 0 {
+					continue
+				}
 				if (r < t) && isPalindrome(t) {
 					r = t
 					break
