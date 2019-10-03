@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"log"
 	"strconv"
+	"time"
 )
 
 func isPalindrome(num int) bool {
@@ -23,8 +24,8 @@ func main() {
 		var n int
 		fmt.Scanf("%d", &n)
 		var r int
-		s := int(math.Pow10(n - 1))
-		e := int(math.Pow10(n)) - 1
+		s := 100
+		e := 999
 
 		for i := e; i > s; i-- {
 			for j := e; j > i; j-- {
@@ -32,14 +33,15 @@ func main() {
 				if t%11 != 0 {
 					continue
 				}
-				if (r < t) && isPalindrome(t) {
-					r = t
-					break
-				} else if t < r {
-					break
+				if isPalindrome(t) && t < n {
+					if t > r {
+						r = t
+					}
 				}
 			}
 		}
 		fmt.Println(r)
+		elapsed := time.Since(start)
+		log.Printf("palindrom %s", elapsed)
 	}
 }
