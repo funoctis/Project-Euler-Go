@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strconv"
-	"time"
 )
 
 func isPalindrome(num int) bool {
@@ -17,7 +16,6 @@ func isPalindrome(num int) bool {
 }
 
 func main() {
-	start := time.Now()
 	var t int
 	fmt.Scanf("%d", &t)
 	for i := 0; i < t; i++ {
